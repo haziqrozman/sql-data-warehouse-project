@@ -16,6 +16,12 @@ A modern data warehouse built on Microsoft SQL Server that consolidates sales da
 
 ---
 
+## Project Architecture
+![](02_docs/03_high-level-architecture.png)
+![](02_docs/06_pipeline-medallion-architecture.png)
+
+---
+
 ## Repository Structure
 
 ```
@@ -34,10 +40,10 @@ sql-data-warehouse/
 ├── 02_docs/                            # Project documentation and architecture references
 │   ├── 01_project-requirements.pdf
 │   ├── 02_data-management-approach.pdf
-│   ├── 03_high-level-architecture.pdf
+│   ├── 03_high-level-architecture.png
 │   ├── 04_naming-conventions.pdf
 │   ├── 05_data-integration-model.pdf
-│   ├── 06_pipeline-medallion-architecture.pdf
+│   ├── 06_pipeline-medallion-architecture.png
 │   └── 07_data-dictionary.pdf
 │
 ├── 03_scripts/                         # SQL scripts organised by warehouse layer
@@ -71,7 +77,7 @@ Analysed project scope, source systems, and data quality expectations to establi
 Defined the data management approach and selected Medallion Architecture as the layering strategy governing data flow from raw ingestion to business-ready consumption.
 
 - Design Data Management Approach — [Data Management Approach](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/02_data-management-approach.pdf)
-- Design Data Architecture — [High Level Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/03_high-level-architecture.pdf)
+- Design Data Architecture — [High Level Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/03_high-level-architecture.png)
 
 ### 3. Project Initialisation
 Established naming conventions and provisioned the database and schema structure before development began.
@@ -84,7 +90,7 @@ Designed and implemented the raw ingestion layer, landing CSV source data as-is 
 
 - Create Bronze Tables — [create_tables_bronze.sql](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/03_scripts/02_bronze/create_tables_bronze.sql)
 - Design & Create Data Load Stored Procedure — [proc_load_bronze.sql](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/03_scripts/02_bronze/proc_load_bronze.sql)
-- Design Data Pipeline Architecture (Bronze Layer) — [Data Pipeline Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/06_pipeline-medallion-architecture.pdf)
+- Design Data Pipeline Architecture (Bronze Layer) — [Data Pipeline Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/06_pipeline-medallion-architecture.png)
 
 ### 5. Build Silver Layer
 Profiled bronze data to identify quality issues across CRM and ERP sources, then built transformation and integration logic with quality checks to validate output integrity.
@@ -93,14 +99,14 @@ Profiled bronze data to identify quality issues across CRM and ERP sources, then
 - Create Silver Tables — [create_tables_silver.sql](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/03_scripts/03_silver/create_tables_silver.sql)
 - Design & Create Data Load Stored Procedure — [proc_load_silver.sql](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/03_scripts/03_silver/proc_load_silver.sql)
 - Perform Quality Checks — [quality_checks_silver.sql](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/03_scripts/03_silver/quality_checks_silver.sql)
-- Design Data Pipeline Architecture (Silver Layer) — [Data Pipeline Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/06_pipeline-medallion-architecture.pdf)
+- Design Data Pipeline Architecture (Silver Layer) — [Data Pipeline Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/06_pipeline-medallion-architecture.png)
 
 ### 6. Build Gold Layer
 Designed a Star Schema with dimension and fact views integrating data across silver tables, validated referential integrity and surrogate key uniqueness, and documented all objects in the data dictionary.
 
 - Create Gold Views — [create_views_gold.sql](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/03_scripts/04_gold/create_views_gold.sql)
 - Perform Quality Checks — [quality_checks_gold.sql](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/03_scripts/04_gold/quality_checks_gold.sql)
-- Design Data Pipeline Architecture (Gold Layer) — [Data Pipeline Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/06_pipeline-medallion-architecture.pdf)
+- Design Data Pipeline Architecture (Gold Layer) — [Data Pipeline Architecture](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/06_pipeline-medallion-architecture.png)
 - Document Data Dictionary — [Data Dictionary](https://github.com/haziqrozman/sql-data-warehouse-project/blob/main/02_docs/07_data-dictionary.pdf)
 
 ---
